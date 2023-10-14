@@ -1,0 +1,61 @@
+/* Reset some default browser styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+    border: 0;
+    margin-bottom: 0 !important
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Use the custom font with fallback to sans-serif */
+    background-color: #ffffff;
+}
+
+header {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px 0; /* Shorthand for top/bottom padding */
+}
+
+section {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+footer {
+    background-color: #494949;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.topic {
+    margin-bottom: 10mm;
+    background-color: #7a797973;
+    border-radius: 20px;
+    padding: 5mm;
+}
+.navbar .nav-item .nav-link.active {
+    color: #fdfdfd; /* Your desired text color */
+}
+
+.navbar-brand {
+    color: #fdfdfd !important; /* Your desired text color */
+}
+
+nav {
+    background-color: #494949;
+}

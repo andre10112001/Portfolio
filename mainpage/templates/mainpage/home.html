@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mainpage/css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my Portfolio</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><strong>HOME</strong></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page"  href="{% url 'portfolio' %}">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page"  href="{% url 'contact' %}">Contacts</a>
+            </li>
+        </div>
+      </div>
+    </nav>
+    {% block content %}
+    <section id="home">
+      <div class="topic">
+        <h2>Welcome to My Portfolio</h2>
+        Welcome to my portfolio website. Here, I showcase my web development skills and projects. Feel free to explore my work, learn more about me, and get in touch.
+      </div>
+        <!-- Latest Projects -->
+      <div class="topic">
+        <h3>Latest Projects</h3>
+        <ul>
+            <li>Project 1</li>
+            <li>Project 2</li>
+            <li>Project 3</li>
+            <!-- Add more project links as needed -->
+        </ul>
+      </div>
+      <div class="topic">
+      If you'd like to see more of my work or discuss potential projects, feel free to <a href="{% url 'contact' %}">get in touch</a>.
+      </div>
+      </section>
+    {% endblock %}
+    <footer>
+        <p>&copy; 2023 Your Name</p>
+    </footer>
+</body>
+</html>
+

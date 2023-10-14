@@ -1,0 +1,50 @@
+{% extends 'mainpage/home.html' %}
+{% block title %}About Me{% endblock %}
+{% block content %}
+<section id="about">
+    <!-- Introduction -->
+    <div class="topic">
+        <h2>Introduction</h2>
+        <p>
+            Hi, I'm André Moreira Lopes. I hold a Bachelor's degree in Mechanical Engineering, and I'm currently pursuing a Master's degree in Data Science. Web development unexpectedly became a passion in my life and has transformed into a hobby. I've taken the initiative to learn more and work on web development projects out of sheer curiosity and a desire to expand my skill set.
+        </p>
+    </div>
+    <!-- Academic Background -->
+    <div class="topic">
+        <h2>Academic Background</h2>
+        <p>
+            My academic journey began with a Bachelor's degree in Mechanical Engineering, which has provided me with a solid foundation in problem-solving and analytical skills. This background has proven to be advantageous in my web development journey, as I was already familiar with programming languages.
+        </p>
+    </div>
+    
+    <!-- Web Development Journey -->
+    <div class="topic">
+        <h2>Web Development Journey</h2>
+        <p>
+            I am largely self-taught in web development, having learned HTML, CSS, and JavaScript online. I've also enriched my knowledge through courses like CS50's Web Development. These experiences have empowered me to work on a variety of web development projects.
+        </p>
+    </div>
+    <!-- Skills -->
+    <div class="topic">
+        <h2>Skills</h2>
+        <ul>
+            <li>Front-end Development (HTML, CSS, JavaScript)</li>
+            <li>Back-end Development (mention any backend technologies you are familiar with, e.g., Django)</li>
+            <li>Data Science (as part of my Master's degree)</li>
+            <li>Responsive Web Design</li>
+            <!-- Add more skills as needed -->
+        </ul>
+    </div>
+    <!-- Interests -->
+    <div class="topic">
+        <h2>Interests</h2>
+        <p>
+            In addition to my academic pursuits, I have a keen interest in web development and its potential to create innovative solutions. I believe that technology can be a powerful tool for addressing real-world challenges and enhancing user experiences. At 21 years old, I'm enthusiastic about further developing my skills in the field.
+        </p>
+    </div>
+    <div class="topic">  
+        <!-- Call to Action -->
+        <p>If you'd like to discuss a project or connect, feel free to <a href="{% url 'contact' %}">get in touch</a>.</p>
+    </div>
+</section>
+{% endblock %}
