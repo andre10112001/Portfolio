@@ -1,0 +1,31 @@
+{% extends "homepage.html" %}
+
+{% block title %}Products{% endblock %}
+
+{% block body %}
+    <h1>Product List</h1>
+    <ul>
+        {% for product in products %}
+            <div class="product_container">
+                <div>
+                    {% if product.image %}
+                        <div class="image-container">
+                            <img src="{{ product.image.url }}">
+                        </div>
+                    {% else %}
+                        <div class="image-container">
+                            <img src="/media/product_images/default.jpg">
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="product_text">
+                    <li style="grid-area: title;text-align: left;font-weight: bold;">{{ product.name }}</li>
+                    <li style="grid-area: price; text-align: right; font-size: 20px;">${{ product.price }}</li>
+                    <p style="grid-area: desc;">{{ product.description }}</p>
+                </div>
+            </div>
+        {% empty %}
+            <li>No products available</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

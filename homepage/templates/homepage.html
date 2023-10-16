@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'styles.css' %}" rel="stylesheet">
+    <title>{% block title %}E-commerce{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'homepage:homepage' %}">Home</a></li>
+            <li><a href="{% url 'homepage:products' %}">Products</a></li>
+            {% if user.is_authenticated %}
+                <ul class="end_nav">
+                    <li><a href="{% url 'homepage:logout' %}">Logout</a></li>
+                </ul>
+            {% else %}
+                <ul class="end_nav">
+                    <li ><a href="{% url 'homepage:login' %}">Login</a></li>
+                    <li ><a href="{% url 'homepage:register' %}">Register</a></li>
+                </ul>
+            {% endif %}
+        </ul>
+    </nav>
+    {% block body %}
+    <ul class="grid-container">
+        <h2 class="grid-item" style="grid-area: header;">Categories</h2>
+        <li class="grid-item">Action</li>
+        <li class="grid-item">Adventure</li>
+        <li class="grid-item">Role-Playing Games (RPGs)</li>
+        <li class="grid-item">Strategy</li>
+        <li class="grid-item">Simulation</li>
+    </ul>
+    </div>  
+
+
+    <ul class="bestsell-grid">
+        <h2 class="grid-item" style="grid-area: header;">Bestselling products</h2>
+        <li class="grid-item">GTA V</li>
+        <li class="grid-item">FIFA 2024</li>
+        <li class="grid-item">Rocket League</li>
+        <li class="grid-item">Watch Dogs</li>
+        <li class="grid-item">Fortnite</li>
+        <li class="grid-item">Call of duty</li>
+        <li class="grid-item">Fall guys</li>
+    </ul>
+    {% endblock %}
+</body>
+</html>
+
