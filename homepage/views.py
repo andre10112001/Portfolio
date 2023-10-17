@@ -10,7 +10,9 @@ from homepage.models import User, Product
 
 def homepage(request):
     users = User.objects.all()
-    return render(request, "homepage.html", {'users':users})
+    number_products = 4
+    products = Product.objects.all()[:number_products]
+    return render(request, 'homepage.html', {'products': products})
 
 
 def login_user(request):
@@ -35,6 +37,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
+    messages.success(request, "You have successfully logged out.")
     return render(request, "homepage.html")
 
 def register_user(request):

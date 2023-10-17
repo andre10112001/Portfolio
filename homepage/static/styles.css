@@ -79,11 +79,11 @@ nav a:hover{
 
 .bestsell-grid{
     display: grid;
-    grid-template-columns: repeat(7, auto);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto 100px;
     grid-template-areas: 
-        "header header header header header header header"
-        "content content content content content content content";
+        "header header header header"
+        "content content content content";
     background-color: #F2F4F5;
     grid-gap: 10px;
     list-style: none;
@@ -91,6 +91,52 @@ nav a:hover{
     padding-inline-start: 20px;
     padding-inline-end: 20px;
 }
+
+@media (max-width: 768px) {
+    .bestsell-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto 100px 100px;
+        grid-template-areas: 
+        "header header"
+        "content content" 
+        "content content";
+    }
+}
+
+.bestsell-item{
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 50px 50px;
+    grid-template-areas: 
+        "image title"
+        "image desc";
+
+}
+
+.bestsell-item:not([style*="grid-area: header"]):hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4); /* Add a shadow on hover */
+}
+
+.bestsell-image-container{
+    .image-container {
+        width: 100px; /* Adjust the size of your black square as needed */
+        height: 100px; /* Same as the width to create a square */
+        overflow: hidden; /* Clip the image that exceeds the container */
+        /* Center the image within the container */
+        border-right: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+}
+
+.bestsell-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
 
 .image-container {
     width: 200px; /* Adjust the size of your black square as needed */
