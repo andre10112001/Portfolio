@@ -1,0 +1,25 @@
+
+{% extends "homepage.html" %}
+{% block title %}{{product.name}}{% endblock %}
+
+{% block body %}
+    <div class="product-page">
+        <h1>{{ product.name }}</h1>
+        <div class="product-details">
+            <div class="product-image">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                    <img src="/media/product_images/default.jpg">
+                {% endif %}
+            </div>
+            <div class="product-text">
+                <p><strong>ID:</strong> {{ product.id }}</p>
+                <p><strong>Description:</strong> {{ product.description }}</p>
+                <p><strong>Price:</strong> ${{ product.price }}</p>
+                <p><strong>Category:</strong> {{ product.category }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

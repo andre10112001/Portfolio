@@ -6,12 +6,18 @@ from django.contrib.auth import logout
 from django.urls import reverse
 from django.shortcuts import redirect
 from django.db import IntegrityError
-from homepage.models import User, Product
+from homepage.models import User, Product, Purchase, ShoppingCart
+from.forms import ProductForm
+from .util import bestsell
+from django.shortcuts import get_object_or_404
 
 def homepage(request):
     users = User.objects.all()
-    number_products = 4
-    products = Product.objects.all()[:number_products]
+    bestsell_ids = bestsell(Purchase.objects.all())
+    number_products = 6
+    products = Product.objects.filter(id__in=bestsell_ids)[:number_products]
+    product_id_to_order = {product_id: order for order, product_id in enumerate(bestsell_ids)}
+    products = sorted(products, key=lambda product: product_id_to_order[product.id])
     return render(request, 'homepage.html', {'products': products})
 
 
@@ -38,7 +44,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, "You have successfully logged out.")
-    return render(request, "homepage.html")
+    return redirect('homepage:homepage')
 
 def register_user(request):
     if request.method == "POST":
@@ -69,3 +75,19 @@ def register_user(request):
 def products(request):
     products = Product.objects.all()
     return render(request, "products.html", {'products': products})
+
+
+def basket(request):
+    user = request.user
+    shopping_cart = ShoppingCart.objects.filter(user=user).first()
+    print(shopping_cart)
+    return render(request, "basket.html", {'cart' : shopping_cart})
+
+def category_games(request, category):
+    products = Product.objects.filter(category=category)
+    return render(request, "products.html", {'products': products})
+
+def product_info(request, product_id):
+    product = Product.objects.get(id=product_id)
+    print(product.name)
+    return render(request, "product_info.html", {'product': product})

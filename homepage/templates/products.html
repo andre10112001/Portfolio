@@ -18,7 +18,7 @@
                     {% endif %}
                 </div>
                 <div class="product_text">
-                    <li style="grid-area: title;text-align: left;font-weight: bold;">{{ product.name }}</li>
+                    <li style="grid-area: title;text-align: left;font-weight: bold;"><a href="{% url 'homepage:product_info' product.id %}">{{ product.name }}</a></li>
                     <li style="grid-area: price; text-align: right; font-size: 20px;">${{ product.price }}</li>
                     <p style="grid-area: desc;">{{ product.description }}</p>
                 </div>

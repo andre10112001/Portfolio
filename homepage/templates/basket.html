@@ -1,0 +1,34 @@
+
+{% extends "homepage.html" %}
+
+{% block title %}Add products{% endblock %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+    {% if cart.basketitem_set.all %}
+        <div class="basket">
+            <h2>Your Shopping Basket</h2>
+            <ul class="basket-items">
+                {% for item in cart.basketitem_set.all %}
+                    <li class="basket-item">
+                        <div class="product-name">{{ item.product.name }}</div>
+                        <div class="product-price">${{ item.product.price }}</div>
+                        <div class="product-quantity">Quantity: {{ item.quantity }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p class="total-price">Total Price: ${{ cart.total_price }}</p>
+        </div>
+    {% else %}
+        <div class="empty-basket">
+            <p>Your shopping basket is empty. Please add items to your basket.</p>
+        </div>
+    {% endif %}
+{% else %}
+    <div class="empty-basket">
+        <p>You need to be <a href="{% url 'homepage:login' %}">logged in</a> to add products</p>
+    </div>
+{% endif %}
+
+{% endblock %}

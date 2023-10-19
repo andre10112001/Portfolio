@@ -13,7 +13,7 @@ nav {
 }
 
 nav ul {
-    background-color: #be4b04;
+    background-color: #FF7518;
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -43,65 +43,75 @@ nav a:hover{
     text-decoration: underline;
 }
 
-.grid-container{
-    background-color: #F2F4F5;
+/* Style for the grid container */
+.grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto repeat(2, 100px);
-    grid-gap: 10px;
-    grid-template-areas:
-        "header header header header"
-        "content content content content" 
-        "content content content content";
-    list-style: none;
-    padding-inline-start: 0px;
-    padding-inline-start: 20px;
-    padding-inline-end: 20px;
-    transition: box-shadow 0.3s;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto repeat(3, 50px); /* Responsive columns */
+    grid-template-areas: 
+        "header header header"
+        "content content content"
+        "content content content"
+        "lcont lcont lcont";
+    gap: 20px;
+    padding: 20px;
+    max-width: 100%; /* Ensure it fills the available width */
 }
 
-.grid-item:not([style*="grid-area: header"]):hover {
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4); /* Add a shadow on hover */
-}
-
-.grid-item{
-    background-color: #FFDAB9;
-}
-
-.grid-item[style*="grid-area: header"] {
-    background-color: #F2F4F5;
-    display: flex;
-    margin: 0px;
-    align-items: center;
-    justify-content: center;
+/* Style for grid items */
+.grid-item {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
     text-align: center;
+    border-radius: 5px;
+    height: 100%; /* Fill the available height */
+    display: flex; /* Make the contents centered vertically */
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+/* Style for the header item */
+.grid-item[style*="grid-area: header"] {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+/* Style for the links within grid items */
+.grid-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Hover effect for links */
+.grid-item a:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+
 
 .bestsell-grid{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 300px);
     grid-template-rows: auto 100px;
     grid-template-areas: 
-        "header header header header"
-        "content content content content";
+        "header header header header header header header"
+        "content content content content content content content";
     background-color: #F2F4F5;
     grid-gap: 10px;
     list-style: none;
     padding-inline-start: 0px;
     padding-inline-start: 20px;
     padding-inline-end: 20px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden;
+    white-space: nowrap; /* Prevent wrapping of grid items */
 }
 
-@media (max-width: 768px) {
-    .bestsell-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto 100px 100px;
-        grid-template-areas: 
-        "header header"
-        "content content" 
-        "content content";
-    }
-}
 
 .bestsell-item{
     border: 1px solid black;
@@ -112,6 +122,20 @@ nav a:hover{
         "image title"
         "image desc";
 
+}
+
+.centered-header {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    max-width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: header; /*
 }
 
 .bestsell-item:not([style*="grid-area: header"]):hover {
@@ -178,6 +202,121 @@ nav a:hover{
     list-style: none;
     text-align: center;
   }
+
+  #add_products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% of the viewport height */
+}
+
+.arrow-button {
+    position: relative;
+    background-color: #fdfefe6f;
+    z-index: 1;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    align-self: stretch;
+}
+
+.left-arrow {
+    left: 0px;
+}
+
+.right-arrow {
+    right: 0px;
+}
+
+.arrows-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F2F4F5;
+    /* Additional styling for the container if needed */
+  }
+
+  /* Styles for the basket */
+.basket {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.basket h2 {
+    font-size: 24px;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.basket-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.basket-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #ff5722;
+}
+
+.product-quantity {
+    font-style: italic;
+}
+
+.total-price {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* Styles for the empty basket message */
+.empty-basket {
+    text-align: center;
+    padding: 20px;
+}
+
+.empty-basket a {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+
+footer {
+    background-color: #FF7518;
+    margin-top: 100px;
+    color: white;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+}
+
+.product-image {
+    flex: 1;
+    margin-right: 20px;
+    /* You can adjust margin and sizing as needed */
+}
+
+.product-text {
+    flex: 2;
+    /* Adjust the width as needed */
+}
+
 
   
   

@@ -19,6 +19,7 @@
             {% if user.is_authenticated %}
                 <ul class="end_nav">
                     <li><a href="{% url 'homepage:logout' %}">Logout</a></li>
+                    <li><a href="{% url 'homepage:basket' %}">Basket</a></li>
                 </ul>
             {% else %}
                 <ul class="end_nav">
@@ -39,33 +40,74 @@
     {% block body %}
     <ul class="grid-container">
         <h2 class="grid-item" style="grid-area: header;">Categories</h2>
-        <li class="grid-item">Action</li>
-        <li class="grid-item">Adventure</li>
-        <li class="grid-item">Role-Playing Games (RPGs)</li>
-        <li class="grid-item">Strategy</li>
-        <li class="grid-item">Simulation</li>
+        <li class="grid-item"><a href="{% url 'homepage:category_games' 'Action' %}">Action</a></li>
+        <li class="grid-item"><a href="{% url 'homepage:category_games' 'Adventure' %}">Adventure</a></li>
+        <li class="grid-item"><a href="{% url 'homepage:category_games' 'Role-Playing' %}">Role-Playing</a></li>
+        <li class="grid-item"><a href="{% url 'homepage:category_games' 'Simulation' %}">Simulation</a></li>
+        <li class="grid-item"><a href="{% url 'homepage:category_games' 'Strategy' %}">Strategy</a></li>
+        <li class="grid-item"><a href="{% url 'homepage:category_games' 'Sports' %}">Sports</a></li>
+        <li class="grid-item"><a href="{% url 'homepage:category_games' 'Puzzle' %}">Puzzle</a></li>
+        <li class="grid-item"><a href="{% url 'homepage:category_games' 'Simulation' %}">Simulation</a></li>
+        <li class="grid-item"><a href="{% url 'homepage:category_games' 'Other' %}">Other</a></li>
     </ul>
     </div>  
-
-    <ul class="bestsell-grid">
-        <h2 class="grid-item" style="grid-area: header;">Bestselling products</h2>
-        {% for product in products %}
-        <div class="bestsell-item">
-            {% if product.image %}
-            <div class="bestsell-image-container" style="grid-area: image;">
-                <img src="{{ product.image.url }}">
+    <div class="arrows-container">
+        <button id="prev-button" class="arrow-button left-arrow">&larr;</button>
+        <ul class="bestsell-grid">
+            <h2 class="centered-header" style="grid-area: header;">Bestselling products</h2>
+            {% for product in products %}
+            <div class="bestsell-item">
+                {% if product.image %}
+                <div class="bestsell-image-container" style="grid-area: image;">
+                    <img src="{{ product.image.url }}">
+                </div>
+                {% else %}
+                <div class="bestsell-image-container" style="grid-area: image;">
+                    <img src="/media/product_images/default.jpg">
+                </div>
+                {% endif %}
+                <div style="grid-area: title;">{{product.name}}</div>
+                <div style="grid-area: desc;">${{product.price}}</div>
             </div>
-            {% else %}
-            <div class="bestsell-image-container" style="grid-area: image;">
-                <img src="/media/product_images/default.jpg">
-            </div>
-            {% endif %}
-            <div style="grid-area: title;">{{product.name}}</div>
-            <div style="grid-area: desc;">${{product.price}}</div>
-        </div>
-        {% endfor %}
-    </ul>
+            {% endfor %}
+        </ul>
+        <button id="next-button" class="arrow-button right-arrow">&rarr;</button>
+    </div>
     {% endblock %}
+<script src="{% static 'script.js' %}"></script>
 </body>
+<!-- Your existing content before the footer -->
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Contact Us</h3>
+                <p>123 Main Street<br>City, State, ZIP</p>
+                <p>Email: contact@example.com<br>Phone: (123) 456-7890</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Follow Us</h3>
+                <ul class="list-inline social-icons">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i>Facebook</a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i>Linkedin</a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Your existing content after the footer -->
+
 </html>
 
