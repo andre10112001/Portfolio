@@ -1,8 +1,110 @@
-{% extends 'mainpage/home.html' %}
-{% block title %}Portfolio{% endblock %}
-{% block content %}
-<section id="portfolio">
-    <h2>Portfolio</h2>
-    <!-- Content for the Portfolio section goes here -->
-</section>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mainpage/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active"  href="{% url 'about' %}">About me</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'portfolio' %}">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active"  href="{% url 'contact' %}">Contacts</a>
+      </li>
+    </ul>
+    <div class="background-image">
+      <div class="content-title">
+        <h1>All the interesting projects I have done until now</h1>
+      </div>
+      <div class="project-container">
+        <div class="project-picture">
+            <img src="/media/project1.png">
+        </div>
+        <div class="project-text">
+            <div class="project-title">
+                <p>E-Commerce Website from Scratch in Django</p>
+            </div>
+            <div class="project-category">
+                <p>Web development - <a href="/homepage"> Click here </a> to see the project </p>
+            </div>
+            <div class="project-desc">
+              <p>In my journey to become a proficient web developer, I embarked on the exciting adventure of building an e-commerce website from the ground up using Django. The process was a profound learning experience, and I acquired a wealth of knowledge in various aspects of web development. Here's a glimpse of what I learned on this rewarding journey:</p>
+              <ul>
+                
+                <li><h2>Django Framework</h2>
+                <p>My journey started with learning Django, a powerful Python web framework. I discovered the elegance of Django's high-level abstractions, which made it easier to focus on building features instead of wrestling with low-level details.</p></li>
+                
+                <li><h2>HTML and CSS</h2>
+                <p>To craft a visually appealing and user-friendly interface, I delved into HTML and CSS. I learned how to structure web pages, style elements, and create responsive designs, ensuring a seamless user experience.</p></li>
+                
+                <li><h2>Database Migrations</h2>
+                <p>Understanding and managing database migrations is crucial for maintaining a scalable application. I learned how to use Django's migration system to evolve the database schema as my project grew.</p></li>
+                
+                <li><h2>User Authentication</h2>
+                <p>Security is paramount in an e-commerce website. I implemented user authentication in Django, enabling users to create accounts, log in securely, and manage their profiles.</p></li>
+                
+                <li><h2>Product Listings</h2>
+                <p>I mastered the art of creating product listings, complete with images, descriptions, and pricing. This involved creating models, views, and templates to display products effectively.</p></li>
+                
+                <li><h2>Shopping Cart Functionality</h2>
+                <p>Implementing a shopping cart was a challenging but rewarding task. I learned how to handle user sessions and manage the items in their carts, creating a seamless shopping experience.</p></li>
+              </ul>
+              <p>This project not only honed my technical skills but also taught me the importance of patience, problem-solving, and perseverance in web development. Building an e-commerce website from scratch in Django was a challenging endeavor, but the knowledge and experience gained along the way were undoubtedly worth it. This project has provided me with a solid foundation to tackle more complex web development projects in the future.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="project-container">
+        <div class="project-picture">
+            <img src="/media/product_images/default.jpg">
+        </div>
+        <div class="project-text">
+            <div class="project-title">
+                <a href="/homepage">Project title</a>
+            </div>
+            <div class="project-category">
+                Project category
+            </div>
+            <div class="project-desc">
+                Project description
+            </div>
+        </div>
+      </div>
+
+      <div class="project-container">
+        <div class="project-picture">
+            <img src="/media/product_images/default.jpg">
+        </div>
+        <div class="project-text">
+            <div class="project-title">
+                <a href="/homepage">Project title</a>
+            </div>
+            <div class="project-category">
+                Project category
+            </div>
+            <div class="project-desc">
+                Project description
+            </div>
+        </div>
+      </div>
+
+    </div>
+    <footer>
+        <p>&copy; 2023 André Lopes</p>
+    </footer>
+</body>
+</html>

@@ -14,12 +14,22 @@
                 {% endif %}
             </div>
             <div class="product-text">
-                <p><strong>ID:</strong> {{ product.id }}</p>
-                <p><strong>Description:</strong> {{ product.description }}</p>
-                <p><strong>Price:</strong> ${{ product.price }}</p>
-                <p><strong>Category:</strong> {{ product.category }}</p>
+                <p class="text-item"><strong>Name:</strong> {{ product.name }}</p>
+                <p class="text-item"><strong>Price:</strong> ${{ product.price }}</p>
+                <p class="text-item"><strong>Category:</strong> {{ product.category }}</p>
+                <p class="text-item"><strong>Description:</strong> {{ product.description }}</p>
+            </div>
+            <div class="cart-containter">
+                <form method="post" class="cart-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="cart-button">Add to Cart</button>
+                </form>
+                
+                <a href="{% url 'homepage:basket' %}" class="cart-link">View Cart</a>
             </div>
         </div>
+        
     </div>
 {% endblock %}
 

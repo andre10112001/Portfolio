@@ -6,8 +6,8 @@ from django.contrib.auth import logout
 from django.urls import reverse
 from django.shortcuts import redirect
 from django.db import IntegrityError
-from homepage.models import User, Product, Purchase, ShoppingCart
-from.forms import ProductForm
+from homepage.models import User, Product, Purchase, ShoppingCart, BasketItem
+from.forms import ProductForm, BasketItemForm
 from .util import bestsell
 from django.shortcuts import get_object_or_404
 
@@ -90,4 +90,25 @@ def category_games(request, category):
 def product_info(request, product_id):
     product = Product.objects.get(id=product_id)
     print(product.name)
-    return render(request, "product_info.html", {'product': product})
+    if request.user.is_authenticated:
+        user = request.user
+        cart, created = ShoppingCart.objects.get_or_create(user=user)
+        # Continue processing for authenticated users
+        user = request.user  # Assuming the user is authenticated
+        cart, created = ShoppingCart.objects.get_or_create(user=user)
+
+        if request.method == 'POST':
+            form = BasketItemForm(request.POST)
+        if request.method == 'POST':
+            form = BasketItemForm(request.POST)
+            if form.is_valid():
+                basket_item = form.save(commit=False)
+                basket_item.product = product
+                basket_item.basket = cart
+                basket_item.save()
+                return redirect('homepage:basket')
+        else:
+            form = BasketItemForm()
+        return render(request, 'product_info.html', {'form': form, 'product': product})
+    else:
+        return render(request, 'product_info.html', {'product': product})

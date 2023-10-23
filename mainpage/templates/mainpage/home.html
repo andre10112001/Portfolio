@@ -6,53 +6,40 @@
     <title>{% block title %}My Portfolio{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'mainpage/css/style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to my Portfolio</h1>
-    </header>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}"><strong>HOME</strong></a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About me</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page"  href="{% url 'portfolio' %}">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page"  href="{% url 'contact' %}">Contacts</a>
-            </li>
-        </div>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active"  href="{% url 'about' %}">About me</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'portfolio' %}">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active"  href="{% url 'contact' %}">Contacts</a>
+      </li>
+    </ul>
+    <div class="background-image">
+      <div class="content-title">
+        <h1>Exploring the Intersection of Engineering, Data Science, and Web Development</h1>
       </div>
-    </nav>
-    {% block content %}
-    <section id="home">
-      <div class="topic">
-        <h2>Welcome to My Portfolio</h2>
-        Welcome to my portfolio website. Here, I showcase my web development skills and projects. Feel free to explore my work, learn more about me, and get in touch.
+      <div class="content">
+        <p>Welcome to my digital realm! I'm André Lopes, a mechanical engineer with a passion for innovation and problem-solving. I've embarked on a journey that traverses the worlds of engineering, data science, and web development.</p>
+        <p>Armed with a bachelor's degree in mechanical engineering, I've honed my skills in designing and building real-world solutions. But my curiosity doesn't stop there. Currently, I'm deep into a master's program in data science, delving into the realms of data analysis, machine learning, and predictive modeling.</p>
+        <p>And that's not all. In my spare time, I've found a love for web development, a creative outlet where I can turn ideas into interactive digital experiences.</p>
+        <p>This portfolio is a collection of my academic journey, showcasing the projects that bridge the gap between the physical and digital worlds. From engineering marvels to data-driven insights and web-based creations, I invite you to explore the fusion of these passions.</p>
+        <p>Join me on this dynamic expedition where engineering precision meets data-driven insights and code transforms ideas into reality. Let's get started!</p>
       </div>
-        <!-- Latest Projects -->
-      <div class="topic">
-        <h3>Latest Projects</h3>
-        <ul>
-            <li><a href="/homepage">Project 1</a></li>
-            <li>Project 2</li>
-            <li>Project 3</li>
-            <!-- Add more project links as needed -->
-        </ul>
-      </div>
-      <div class="topic">
-      If you'd like to see more of my work or discuss potential projects, feel free to <a href="{% url 'contact' %}">get in touch</a>.
-      </div>
-      </section>
-    {% endblock %}
+    </div>
     <footer>
-        <p>&copy; 2023 Your Name</p>
+        <p>&copy; 2023 André Lopes</p>
     </footer>
 </body>
 </html>

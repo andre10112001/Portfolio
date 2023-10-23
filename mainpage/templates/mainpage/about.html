@@ -1,50 +1,80 @@
-{% extends 'mainpage/home.html' %}
-{% block title %}About Me{% endblock %}
-{% block content %}
-<section id="about">
-    <!-- Introduction -->
-    <div class="topic">
-        <h2>Introduction</h2>
-        <p>
-            Hi, I'm André Moreira Lopes. I hold a Bachelor's degree in Mechanical Engineering, and I'm currently pursuing a Master's degree in Data Science. Web development unexpectedly became a passion in my life and has transformed into a hobby. I've taken the initiative to learn more and work on web development projects out of sheer curiosity and a desire to expand my skill set.
-        </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mainpage/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active"  href="{% url 'about' %}">About me</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'portfolio' %}">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active"  href="{% url 'contact' %}">Contacts</a>
+      </li>
+    </ul>
+    <div class="background-image">
+      <div class="content-title">
+        <h1>What have I done until now?</h1>
+      </div>
+      <div class="content" id="about-1">
+        <div class="cnt-title">
+          <p>2018 - 2022: Bachelor's in Mechanical Engineering</p>
+        </div>
+        <p>Graduated with a solid foundation in engineering principles.</p>
+        <p>Delved into coursework covering mechanics, thermodynamics, and design.</p>
+        <p>Collaborated on projects that brought theoretical knowledge to life.</p>
+      </div>
+
+      <div class="middle-content">
+        <div class="right-item"></div>
+        <div class="middle-content-container">
+          <div class="content">
+            <div class="cnt-title">
+              Ongoing: Web Development Enthusiast
+            </div>
+            Side passion in web development and creating digital experiences.
+            Building web applications, honing frontend skills, and managing back-end processes.
+          </div>
+          <div class="content">
+            <div class="cnt-title">
+              Life Outside Academia
+            </div>
+              Enthusiastic hiker, aspiring chef, and avid reader in my free time.
+              Always on the lookout for new adventures and inspirations
+          </div>
+          <div class="content">
+            <div class="cnt-title">
+              Future: The Journey Ahead
+            </div>
+              Excited about the opportunities and projects that await in this dynamic intersection of engineering, data, and web development.
+              Eager to apply my knowledge and creativity to new challenges and endeavors.
+          </div>
+        </div>
+      </div>
+
+      <div class="content" id="about-2">
+        <p>2023 - 2024: Pursuing Master's in Data Science</p>
+        <p>Embarked on a new adventure in the world of data.</p>
+        <p>Learning the art of data analysis, machine learning, and predictive modeling.</p>
+        <p>Exploring the boundless potential of data-driven insights.</p>
     </div>
-    <!-- Academic Background -->
-    <div class="topic">
-        <h2>Academic Background</h2>
-        <p>
-            My academic journey began with a Bachelor's degree in Mechanical Engineering, which has provided me with a solid foundation in problem-solving and analytical skills. This background has proven to be advantageous in my web development journey, as I was already familiar with programming languages.
-        </p>
     </div>
-    
-    <!-- Web Development Journey -->
-    <div class="topic">
-        <h2>Web Development Journey</h2>
-        <p>
-            I am largely self-taught in web development, having learned HTML, CSS, and JavaScript online. I've also enriched my knowledge through courses like CS50's Web Development. These experiences have empowered me to work on a variety of web development projects.
-        </p>
-    </div>
-    <!-- Skills -->
-    <div class="topic">
-        <h2>Skills</h2>
-        <ul>
-            <li>Front-end Development (HTML, CSS, JavaScript)</li>
-            <li>Back-end Development (mention any backend technologies you are familiar with, e.g., Django)</li>
-            <li>Data Science (as part of my Master's degree)</li>
-            <li>Responsive Web Design</li>
-            <!-- Add more skills as needed -->
-        </ul>
-    </div>
-    <!-- Interests -->
-    <div class="topic">
-        <h2>Interests</h2>
-        <p>
-            In addition to my academic pursuits, I have a keen interest in web development and its potential to create innovative solutions. I believe that technology can be a powerful tool for addressing real-world challenges and enhancing user experiences. At 21 years old, I'm enthusiastic about further developing my skills in the field.
-        </p>
-    </div>
-    <div class="topic">  
-        <!-- Call to Action -->
-        <p>If you'd like to discuss a project or connect, feel free to <a href="{% url 'contact' %}">get in touch</a>.</p>
-    </div>
-</section>
-{% endblock %}
+    <footer>
+        <p>&copy; 2023 André Lopes</p>
+    </footer>
+</body>
+</html>

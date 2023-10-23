@@ -301,21 +301,101 @@ footer {
     color: white;
 }
 
+.product-page{
+    width: 800px;
+}
+
 .product-details {
     display: flex;
-    align-items: center;
 }
 
 .product-image {
-    flex: 1;
+    align-items: center;
     margin-right: 20px;
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+    border: 2px solid red;
+    justify-content: center;
+    align-items: center;
     /* You can adjust margin and sizing as needed */
 }
 
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+
 .product-text {
     flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
     /* Adjust the width as needed */
 }
+
+.text-item:nth-child(4) {
+    flex-grow: 4; /* The fourth row will take 3 times the available space */
+}
+
+.text-item {
+    flex-grow: 1; /* The first three rows will take an equal proportion of the available space */
+    /* Additional styling as needed */
+}
+
+.cart-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.cart-heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cart-form {
+    display: flex;
+
+}
+
+.cart-button {
+    margin-left: 10px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-button:hover {
+    background-color: #0056b3;
+}
+
+.cart-link {
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.cart-link:hover {
+    text-decoration: underline;
+}
+
+label[for="id_quantity"] {
+    display: none;
+}
+
+
+
+
 
 
   
